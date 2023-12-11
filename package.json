@@ -1,6 +1,6 @@
 {
   "name": "ts-can",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Small 0 dependencies permissions library",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -8,7 +8,10 @@
   "repository": "https://github.com/veselinreljic/ts-can",
   "homepage": "https://veselinreljic.github.io/ts-can/",
   "license": "MIT",
-  "keywords": ["permissions", "typescript"],
+  "keywords": [
+    "permissions",
+    "typescript"
+  ],
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",
