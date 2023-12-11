@@ -67,7 +67,56 @@
 				<a href="#ts-can" id="ts-can" style="color: inherit; text-decoration: none;">
 					<h1>ts-can</h1>
 				</a>
-				<p>Small 0 dependencies permissions library</p>
+				<p><a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+				<a href="https://badge.fury.io/veselinreljic/ts-can"><img src="https://badge.fury.io/veselinreljic/ts-can.svg" alt="npm version"></a></p>
+				<p>Small 0 dependencies TypeScript library for managing and checking user permissions</p>
+				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+					<h2>Table of Contents</h2>
+				</a>
+				<ul>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#usage">Usage</a></li>
+					<li><a href="#api-documentation">API Documentation</a></li>
+					<li><a href="#license">License</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-bash">npm install ts-can
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Permissions, TestRules, checkPermissions, canAllow } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;permissions-library&#x27;</span>;
+
+<span class="hljs-comment">// Define user permissions</span>
+<span class="hljs-keyword">const</span> userPermissions: Permissions = {
+  <span class="hljs-string">&#x27;moduleA&#x27;</span>: {
+    <span class="hljs-attr">abilities</span>: { <span class="hljs-attr">read</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">write</span>: <span class="hljs-literal">false</span> },
+    <span class="hljs-attr">checks</span>: { <span class="hljs-attr">isAdmin</span>: <span class="hljs-function">(<span class="hljs-params">target</span>) =&gt;</span> target.isAdmin }
+  },
+  <span class="hljs-string">&#x27;moduleB&#x27;</span>: {
+    <span class="hljs-attr">abilities</span>: { <span class="hljs-attr">read</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">write</span>: <span class="hljs-literal">true</span> },
+    <span class="hljs-attr">checks</span>: { <span class="hljs-attr">hasAccess</span>: <span class="hljs-function">(<span class="hljs-params">target</span>) =&gt;</span> target.isValidUser }
+  },
+  <span class="hljs-comment">// ... other modules</span>
+};
+
+<span class="hljs-comment">// Define test rules</span>
+<span class="hljs-keyword">const</span> testRules: TestRules = {
+  <span class="hljs-string">&#x27;moduleA&#x27;</span>: { <span class="hljs-attr">abilities</span>: [<span class="hljs-string">&#x27;read&#x27;</span>] },
+  <span class="hljs-string">&#x27;moduleB&#x27;</span>: { <span class="hljs-attr">checks</span>: [<span class="hljs-string">&#x27;hasAccess&#x27;</span>], <span class="hljs-attr">target</span>: { <span class="hljs-attr">isValidUser</span>: <span class="hljs-literal">true</span> } },
+  <span class="hljs-comment">// ... other test rules</span>
+};
+
+<span class="hljs-comment">// Check if user has required permissions for all test rules</span>
+<span class="hljs-keyword">const</span> result = canAllow(userPermissions, testRules);
+<span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// Output: true</span>
+</code></pre>
+				<a href="#api-documentation" id="api-documentation" style="color: inherit; text-decoration: none;">
+					<h2>API Documentation</h2>
+				</a>
+				<p>Please refer to the official <a href="https://veselinreljic.github.io/ts-can/globals.html#canallow">documentation</a> for detailed information about the API and usage examples.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
