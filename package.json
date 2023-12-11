@@ -1,6 +1,6 @@
 {
   "name": "ts-can",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Small 0 dependencies permissions library",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
