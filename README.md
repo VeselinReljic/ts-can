@@ -1,7 +1,7 @@
 # ts-can
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![npm version](https://badge.fury.io/veselinreljic/ts-can.svg)](https://badge.fury.io/veselinreljic/ts-can)
+[![npm version](https://badge.fury.io/js/ts-can.svg)](https://badge.fury.io/js/ts-can.svg)
 
 Small 0 dependencies TypeScript library for managing and checking user permissions
 
